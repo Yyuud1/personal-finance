@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Finance Tracker</title>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="top-sidebar">
+          <h1><i data-feather="user"></i></h1>
+          <h2>Personal Finance Tracker</h2>
+          <p>&copy; created by ydagrh.</p>
+        </div>
+        <button id="exportPDF">
+          <i data-feather="download"></i> Export PDF
+        </button>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Input Data -->
+        <div class="input-section">
+          <input type="text" id="keterangan" placeholder="Keterangan" />
+          <input type="number" id="jumlah" placeholder="Jumlah (Rp)" />
+          <select id="tipe">
+            <option value="pemasukan">INCOME</option>
+            <option value="pengeluaran">EXPANSE</option>
+          </select>
+          <button id="tambahBtn">Tambah</button>
+        </div>
+
+        <!-- Filter dan Pencarian -->
+        <div class="filter-section">
+          <input type="text" id="search" placeholder="Cari transaksi..." />
+          <select id="filterBulan">
+            <option value="all">Semua Bulan</option>
+            <!-- Opsional: akan di-generate dari JS -->
+          </select>
+        </div>
+
+        <!-- Rekapitulasi -->
+        <!-- <div class="rekap-section">
+          <div class="rekap-card pemasukan">
+            <i data-feather="arrow-down-circle"></i>
+            <h3>Pemasukan</h3>
+            <p id="totalPemasukan">Rp 0</p>
+          </div>
+          <div class="rekap-card pengeluaran">
+            <i data-feather="arrow-up-circle"></i>
+            <h3>Pengeluaran</h3>
+            <p id="totalPengeluaran">Rp 0</p>
+          </div>
+          <div class="rekap-card saldo">
+            <i data-feather="credit-card"></i>
+            <h3>Saldo</h3>
+            <p id="saldo">Rp 0</p>
+          </div>
+        </div> -->
+
+        <div class="rekap-section">
+          <div id="totalPemasukan"></div>
+          <div id="totalPengeluaran"></div>
+          <div id="saldo"></div>
+        </div>
+
+        <!-- List Transaksi -->
+        <div class="table-container">
+          <table id="listTransaksi">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Tanggal</th>
+                <th>Keterangan</th>
+                <th>Nilai</th>
+                <th>Tipe</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+
+    <script src="src/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      feather.replace();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+  </body>
+</html>

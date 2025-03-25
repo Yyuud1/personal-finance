@@ -1,0 +1,339 @@
+/* Reset dan base style */
+:root {
+  --background: #131419;
+  --shadow: -5px -5px 10px rgba(255, 255, 255, 0.05),
+    -5px -5px 15px rgba(0, 0, 0, 0.5);
+  --shadow-right: -2px -2px 6px rgba(255, 255, 255, 0.2),
+    2px 2px 6px rgba(0, 0, 0, 0.7);
+  --shadow-light: -3px -3px 6px rgba(255, 255, 255, 0.02),
+    3px 3px 6px rgba(0, 0, 0, 0.5);
+  --shadow-inset: inset -2px -2px 6px rgba(255, 255, 255, 0.1),
+    inset 2px 2px 6px rgba(0, 0, 0, 0.8);
+  --color-white: #c7c7c7;
+  --light-blue: #03a9f4;
+  --color-blue: hsl(252, 75%, 60%);
+  --color-bluesoft: hsl(202, 75%, 60%);
+  --color-red: hsl(352, 75%, 60%);
+  --color-yellow: hsl(52, 75%, 60%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+}
+
+/* Container utama horizontal */
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  padding: 30px 20px;
+  box-shadow: var(--shadow-right);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar .top-sidebar {
+  text-align: center;
+}
+
+.sidebar .top-sidebar h1,
+p {
+  color: var(--color-white);
+}
+
+.sidebar .top-sidebar p {
+  font-size: 13px;
+}
+
+.sidebar .top-sidebar h2 {
+  font-size: 22px;
+  color: var(--color-bluesoft);
+  margin-bottom: 20px;
+}
+
+.sidebar button {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  color: var(--color-bluesoft);
+  background: var(--background);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 12.5px;
+  align-items: center;
+  gap: 5px;
+  box-shadow: var(--shadow-light);
+  transition: 0.2s linear;
+}
+
+.sidebar button:hover {
+  box-shadow: var(--shadow-inset);
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  overflow-y: auto;
+}
+
+/* Input section */
+.input-section {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+}
+
+.input-section input,
+.input-section select {
+  padding: 1.2rem;
+  border-radius: 10px;
+  border: none;
+  width: 100%;
+  color: var(--color-bluesoft);
+  background: var(--background);
+  box-shadow: var(--shadow-inset);
+}
+
+.input-section button {
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border: none;
+  background: var(--background);
+  color: var(--color-bluesoft);
+  cursor: pointer;
+  box-shadow: var(--shadow-light);
+  transition: all 0.2s ease;
+}
+
+.input-section button:hover {
+  background: var(--background);
+  box-shadow: var(--shadow-inset);
+}
+
+/* Filter dan search */
+.filter-section {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.filter-section input,
+.filter-section select {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: var(--background);
+  box-shadow: var(--shadow-light);
+  color: var(--color-white);
+  cursor: pointer;
+}
+
+/* Rekapitulasi */
+.rekap-section {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  align-items: center;
+  font-weight: bold;
+  color: var(--color-bluesoft);
+}
+
+.rekap-section div {
+  box-shadow: var(--shadow-light);
+  border-radius: 5px;
+  width: 410px;
+  height: 80px;
+  padding: 10px;
+}
+
+/* Table Styling */
+.table-container {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+#listTransaksi {
+  width: 100%;
+  min-width: unset;
+  white-space: normal;
+  border-collapse: collapse;
+  box-shadow: var(--shadow-light);
+  border-radius: 5px;
+  overflow: hidden;
+  table-layout: auto;
+  color: var(--color-white);
+  margin-top: 1rem;
+}
+
+#listTransaksi thead {
+  background-color: var(--background);
+  color: white;
+}
+
+#listTransaksi th,
+td {
+  padding: 12px;
+  text-align: left;
+}
+
+#listTransaksi th {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#listTransaksi tbody .aksi {
+  display: flex;
+  gap: 10px;
+}
+
+#listTransaksi tbody .aksi button {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-light);
+  transition: 0.1s ease;
+}
+
+#listTransaksi tbody .aksi button:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+#listTransaksi tbody .aksi button.edit {
+  background: var(--background);
+  color: var(--color-white);
+}
+
+#listTransaksi tbody .aksi button.hapus {
+  background: var(--background);
+  color: var(--color-white);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  table {
+    font-size: 12px;
+  }
+
+  th,
+  td {
+    padding: 8px;
+  }
+}
+
+/* RESPONSIF: Tablet dan bawah */
+@media (max-width: 1024px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .sidebar .top-sidebar {
+    text-align: left;
+  }
+
+  .sidebar button {
+    margin-left: auto;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  .rekap-section {
+    padding: 0;
+    justify-content: space-around;
+  }
+}
+
+/* RESPONSIF: HP */
+@media (max-width: 600px) {
+  .input-section {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .filter-section {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .rekap-section {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .rekap-section div {
+    width: 100%;
+  }
+
+  .sidebar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .sidebar .top-sidebar h2 {
+    font-size: 18px;
+  }
+
+  .sidebar button {
+    width: 100%;
+  }
+
+  #listTransaksi th,
+  #listTransaksi td {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  #listTransaksi .aksi {
+    display: flex;
+    justify-content: center;
+  }
+
+  .table-container {
+    overflow-x: auto;
+  }
+}
