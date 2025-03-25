@@ -65,7 +65,7 @@ function renderList(filteredData = dataTransaksi) {
       <td>${index + 1}</td>
       <td>${formatTanggal(item.tanggal)}</td>
       <td>${item.keterangan}</td>
-      <td class="${item.tipe}">Rp ${item.jumlah.toLocaleString()}</td>
+      <td class="${item.tipe}">Rp ${item.jumlah.toLocaleString("id-ID")}</td>
       <td style="color: ${warnaTipe};">${tipe}</td>
       <td class="aksi">
         <button class="edit" data-index="${index}">
@@ -97,9 +97,17 @@ function updateFilterBulanOptions() {
   });
 }
 
+jumlahInput.addEventListener("input", function (e) {
+  let value = e.target.value.replace(/\D/g, "");
+  if (value) {
+    value = new Intl.NumberFormat("id-ID").format(value);
+  }
+  e.target.value = value;
+});
+
 tambahBtn.addEventListener("click", () => {
   const keterangan = keteranganInput.value.trim();
-  const jumlah = parseFloat(jumlahInput.value.trim());
+  const jumlah = parseFloat(jumlahInput.value.replace(/\./g, "").trim());
   const tipe = tipeInput.value;
   const tanggal = new Date().toISOString().slice(0, 10);
 

@@ -208,6 +208,7 @@ p {
 
 /* Table Styling */
 .table-container {
+  margin-top: 1.2rem;
   overflow-x: auto;
   max-width: 100%;
   box-shadow: var(--shadow-light);
@@ -222,7 +223,6 @@ p {
   overflow: hidden;
   table-layout: auto;
   color: var(--color-white);
-  margin-top: 1rem;
 }
 
 #listTransaksi thead {
