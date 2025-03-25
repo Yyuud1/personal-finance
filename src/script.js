@@ -56,7 +56,7 @@ function renderList(filteredData = dataTransaksi) {
   tbody.innerHTML = "";
 
   filteredData.forEach((item, index) => {
-    const tipe = String(item.tipe).toUpperCase(); // Pastikan string
+    const tipe = String(item.tipe).toUpperCase();
     const warnaTipe =
       tipe === "PEMASUKAN" ? "var(--color-green)" : "var(--color-red)";
 
@@ -115,6 +115,7 @@ tambahBtn.addEventListener("click", () => {
     Swal.fire({
       toast: "true",
       icon: "error",
+      confirmButtonColor: "var(--color-bluesoft)",
       position: "top-end",
       title: "Oops...",
       text: "Harap isi form sebelum klik tambah",
@@ -144,12 +145,14 @@ listTransaksi.addEventListener("click", (e) => {
 
   if (e.target.closest("button").classList.contains("hapus")) {
     Swal.fire({
+      toast: "true",
       title: "Yakin ingin menghapus?",
+      position: "top-end",
       text: "Data ini akan hilang selamanya!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#d33",
-      cancelButtonColor: "#3085d6",
+      confirmButtonColor: "var(--color-red)",
+      cancelButtonColor: "var(--color-bluesoft)",
       confirmButtonText: "Ya, hapus!",
     }).then((result) => {
       if (result.isConfirmed) {
@@ -157,6 +160,8 @@ listTransaksi.addEventListener("click", (e) => {
         simpanData();
         renderList();
         Swal.fire({
+          toast: "true",
+          position: "top-end",
           icon: "success",
           title: "Terhapus!",
           text: "Transaksi telah dihapus.",
@@ -169,6 +174,8 @@ listTransaksi.addEventListener("click", (e) => {
     const item = dataTransaksi[index];
 
     Swal.fire({
+      toast: "true",
+      position: "top-end",
       title: "Edit Transaksi",
       html: ` <div style="display: flex; flex-direction: column; gap: 10px; text-align: left;">
           <label for="edit-keterangan">Keterangan:</label>
@@ -202,6 +209,8 @@ listTransaksi.addEventListener("click", (e) => {
         </div>
       `,
       showCancelButton: true,
+      confirmButtonColor: "var(--color-bluesoft)",
+      cancelButtonColor: "var(--color-red)",
       confirmButtonText: "Simpan",
       cancelButtonText: "Batal",
       preConfirm: () => {
@@ -226,12 +235,12 @@ listTransaksi.addEventListener("click", (e) => {
           Swal.fire({
             icon: "error",
             title: "Oops...",
+            confirmButtonColor: "var(--color-bluesoft)",
             text: "Harap isi semua form dengan benar!",
           });
           return;
         }
 
-        // Update data transaksi
         dataTransaksi[index] = {
           ...dataTransaksi[index],
           keterangan: result.value.keterangan,
@@ -243,6 +252,8 @@ listTransaksi.addEventListener("click", (e) => {
         renderList();
 
         Swal.fire({
+          toast: "true",
+          position: "top-end",
           icon: "success",
           title: "Transaksi Diperbarui!",
           showConfirmButton: false,
