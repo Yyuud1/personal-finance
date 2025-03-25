@@ -15,6 +15,7 @@
   --color-bluesoft: hsl(202, 75%, 60%);
   --color-red: hsl(352, 75%, 60%);
   --color-yellow: hsl(52, 75%, 60%);
+  --color-green: #89ac46;
 }
 
 * {
@@ -162,25 +163,54 @@ p {
 /* Rekapitulasi */
 .rekap-section {
   display: flex;
-  gap: 25px;
-  flex-wrap: wrap;
-  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.rekap-section .rekap-card {
+  flex: 1;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
   font-weight: bold;
+  box-shadow: var(--shadow-light);
+}
+
+.rekap-section .rekap-card:nth-child(1) {
+  color: var(--color-green);
+}
+
+.rekap-section .rekap-card:nth-child(2) {
+  color: var(--color-red);
+}
+
+.rekap-section .rekap-card:nth-child(3) {
   color: var(--color-bluesoft);
 }
 
-.rekap-section div {
-  box-shadow: var(--shadow-light);
-  border-radius: 5px;
-  width: 410px;
-  height: 80px;
-  padding: 10px;
+.rekap-section .pemasukan {
+  background-color: var(--background); /* Hijau */
+}
+
+.rekap-section .pengeluaran {
+  background-color: var(--background); /* Hijau */
+}
+
+.rekap-section .saldo {
+  background-color: var(--background); /* Hijau */
+}
+
+.rekap-section .rekap-card i {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
 /* Table Styling */
 .table-container {
   overflow-x: auto;
   max-width: 100%;
+  box-shadow: var(--shadow-light);
 }
 
 #listTransaksi {
@@ -188,7 +218,6 @@ p {
   min-width: unset;
   white-space: normal;
   border-collapse: collapse;
-  box-shadow: var(--shadow-light);
   border-radius: 5px;
   overflow: hidden;
   table-layout: auto;

@@ -35,11 +35,10 @@ function updateRekap() {
     }
   });
 
-  totalPemasukan.textContent = `
-  income = ${formatRupiah(pemasukan)}
+  totalPemasukan.textContent = `${formatRupiah(pemasukan)}
   `;
-  totalPengeluaran.textContent = `expense = ${formatRupiah(pengeluaran)}`;
-  saldo.textContent = `Saldo = ${formatRupiah(pemasukan - pengeluaran)}`;
+  totalPengeluaran.textContent = `${formatRupiah(pengeluaran)}`;
+  saldo.textContent = `${formatRupiah(pemasukan - pengeluaran)}`;
 
   feather.replace();
 }
@@ -59,7 +58,7 @@ function renderList(filteredData = dataTransaksi) {
   filteredData.forEach((item, index) => {
     const tipe = String(item.tipe).toUpperCase(); // Pastikan string
     const warnaTipe =
-      tipe === "PEMASUKAN" ? "var(--color-yellow)" : "var(--color-red)";
+      tipe === "PEMASUKAN" ? "var(--color-green)" : "var(--color-red)";
 
     const tr = document.createElement("tr");
     tr.innerHTML = `
