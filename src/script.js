@@ -79,7 +79,7 @@ function renderList(filteredData = dataTransaksi) {
     tbody.appendChild(tr);
   });
 
-  feather.replace(); // Refresh ikon Feather
+  feather.replace();
   updateRekap();
   updateFilterBulanOptions();
 }
@@ -87,7 +87,7 @@ function renderList(filteredData = dataTransaksi) {
 function updateFilterBulanOptions() {
   const bulanSet = new Set();
   dataTransaksi.forEach((item) => {
-    const bulan = item.tanggal.slice(0, 7); // format: yyyy-mm
+    const bulan = item.tanggal.slice(0, 7);
     bulanSet.add(bulan);
   });
 
@@ -288,5 +288,4 @@ document.getElementById("exportPDF").addEventListener("click", () => {
   doc.save(`Laporan-Keuangan-${waktu}.pdf`);
 });
 
-// Inisialisasi saat pertama kali load
 renderList();
